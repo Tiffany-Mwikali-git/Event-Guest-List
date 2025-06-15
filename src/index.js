@@ -37,3 +37,10 @@ function removeGuest(index) {
     displayGuest();
     console.log(guestList)
 }
+
+let Attending = false;
+
+function toggleRSVP() {
+    Attending = Attending;
+    console.log(`RSVP status: ${Attending  "Attending" : "Not Attending" }`);
+}
