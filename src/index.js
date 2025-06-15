@@ -1,4 +1,5 @@
 const guestList = []
+const guestListRSVP = []
 
 
 function addGuest() {
@@ -12,6 +13,7 @@ function addGuest() {
 
     if (guestName) {
         guestList.push(guestName); //adding a guest using the push method
+        guestListRSVP.push(true)
         guestInput.value = " "; 
         displayGuest();
     }  
@@ -23,27 +25,45 @@ function displayGuest() {
 
     guestList.forEach((guest, index) => {
         const listItem = document.createElement("li"); //creating a new element called "li"
+        const listItemRSVP = document.createElement("li")
         listItem.textContent = guest;
+        if (guestListRSVP[index]) {
+            listItemRSVP.textContent = 'Attending'
+            
+        } else {
+            listItemRSVP.textContent = "Not Attending"
+        }
 
         const removeBtn = document.createElement("button");
-        removeBtn.textContent = "Remove";
+        removeBtn.textContent = "Remove"; 
         removeBtn.onclick = () => removeGuest(index);
+        
+        const toggleRSVPBtn = document.createElement("button");
+        toggleRSVPBtn.textContent = "toggleRSVP";
+        toggleRSVPBtn.onclick = () => toggleAttending(index)
+        
 
-        listItem.appendChild(removeBtn); //creating a remove button for each guest
+
         guestListElement.appendChild(listItem);
+        guestListElement.appendChild(listItemRSVP)
+        listItem.appendChild(removeBtn); //creating a remove button for each guest
+        listItem.appendChild(toggleRSVPBtn)
     })
 }
  
 
 function removeGuest(index) {
     guestList.splice(index , 1);
+    guestListRSVP.splice(index , 1);
     displayGuest();
+
+
     console.log(guestList)
 }
 
-let Attending = false;
-
-function toggleRSVP() {
-    Attending = Attending;
-    console.log(`RSVP status: ${Attending}  "Attending" : "Not Attending" `);
+function toggleAttending(index) {
+    guestListRSVP[index] = ! guestListRSVP[index]
+    displayGuest();
 }
+
+
