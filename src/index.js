@@ -34,7 +34,7 @@ function displayGuest() {
             listItemRSVP.textContent = "Not Attending"
         }
 
-        const removeBtn = document.createElement("button");
+        const removeBtn = document.createElement("button"); 
         removeBtn.textContent = "Remove"; 
         removeBtn.onclick = () => removeGuest(index);
         
@@ -46,15 +46,15 @@ function displayGuest() {
 
         guestListElement.appendChild(listItem);
         guestListElement.appendChild(listItemRSVP)
-        listItem.appendChild(removeBtn); //creating a remove button for each guest
-        listItem.appendChild(toggleRSVPBtn)
+        listItem.appendChild(removeBtn); //adding each guest to the remove bottom
+        listItem.appendChild(toggleRSVPBtn) //adding each guest to the toggleRSVP button
     })
 }
  
-
+// making a function for the removeGuest
 function removeGuest(index) {
     guestList.splice(index , 1);
-    guestListRSVP.splice(index , 1);
+    guestListRSVP.splice(index , 1); 
     displayGuest();
 
 
@@ -62,7 +62,7 @@ function removeGuest(index) {
 }
 
 function toggleAttending(index) {
-    guestListRSVP[index] = ! guestListRSVP[index]
+    guestListRSVP[index] = ! guestListRSVP[index]  //making sure each added guest has the toggleAttending and viceveser feature
     displayGuest();
 }
 
