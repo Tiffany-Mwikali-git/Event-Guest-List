@@ -18,7 +18,7 @@
 
 ### View Live Site
 
-Visit the deployed application at: https://github.com/Tiffany-Mwikali-git/Event-Guest-List
+Visit the deployed application at: https://tiffany-mwikali-git.github.io/Event-Guest-List/
 
 ## Getting Started
 
